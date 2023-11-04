@@ -9,6 +9,10 @@ export const App = () => {
   });
   const [filter, setFilter] = useState('');
 
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+
   const handleSubmit = data => {
     const contactExists = contacts.some(
       contact =>
@@ -38,10 +42,6 @@ export const App = () => {
     );
     return filteredContacts;
   };
-
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   return (
     <div className="container">
