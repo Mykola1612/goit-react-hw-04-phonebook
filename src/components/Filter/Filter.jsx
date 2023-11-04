@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Filter.module.css';
 
-const Filter = props => {
+const Filter = ({ filter, filterValue }) => {
   const handleinputChangeFilter = e => {
-    props.filter(e.target.value);
+    filter(e.target.value);
   };
 
   return (
@@ -15,7 +15,7 @@ const Filter = props => {
         onChange={handleinputChangeFilter}
         className={styles.input_filter}
         required
-        value={props.filterValue}
+        value={filterValue}
         pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$
 \+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
       />
